@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Flags]
-internal enum Dificulty
+public enum Dificulty
 {
     Easy = 1,
     Normal = 2,
