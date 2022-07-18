@@ -8,7 +8,9 @@ namespace ConsoleGameCheck
         static void Main(string[] args)
         {
             Game game = new Game();
-            Console.WriteLine("Hello World!");
+
+
+            var state = game.GetGameState();
         }
     }
 }
