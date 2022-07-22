@@ -1,10 +1,8 @@
 ﻿namespace GameLogic
 {
-    class Save
+    public class Save
     {
-        static public Save GetSaveByName(string name)
-        {
-            return new Save();
-        } 
+        string Path;
+        string Name;
     }
 }
