@@ -24,6 +24,9 @@ namespace GameLogic
 
         private Character _Character;
 
+        public GameState GetGameState() => gameState;
+        public Dificulty GetDificulty() => dificulty;
+
         public Game()
         {
             gameState = GameState.GameStart;
@@ -33,11 +36,19 @@ namespace GameLogic
             _actions.Add(GameState.SelectNewLoadGame, ChooseLoadNewGame);
             _actions.Add(GameState.CreateNewGame, CreateNewGame);
             _actions.Add(GameState.Idle, GameIdle);
+            _actions.Add(GameState.CloseGame, CloseGame);
+        }
+
+        private void CloseGame()
+        {
+            ShowMessage("Closing game");
         }
 
         private void GameIdle()
         {
-            throw new NotImplementedException();
+            ShowMessage("This is game idle");
+            AskQuestion("Do u like coffee?", new[] { "Yes", "No" });
+            gameState = GameState.CloseGame;
         }
 
         public void NextStep()
@@ -94,16 +105,6 @@ namespace GameLogic
         private void LoadGame()
         {
             throw new NotImplementedException();
-        }
-
-        public GameState GetGameState()
-        {
-            return gameState;
-        }
-
-        public Dificulty GetDificulty()
-        {
-            return dificulty;
         }
 
         public Save[] GetAllSaves()
